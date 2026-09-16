@@ -2,9 +2,8 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale5=1.0">
     <title>Little Death</title>
-    <!-- استدعاء مكتبة الأيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
@@ -20,7 +19,6 @@
             overflow: hidden;
             position: relative;
         }
-        /* خلفية الفيديو */
         .bg-video {
             position: absolute;
             top: 50%;
@@ -82,7 +80,6 @@
             background: rgba(255, 255, 255, 0.2);
             transform: scale(1.1);
         }
-        /* زر الصوت الأنيق */
         .music-toggle {
             background: rgba(255, 255, 255, 0.08);
             border: 1px solid rgba(255, 255, 255, 0.15);
@@ -117,36 +114,31 @@
 </head>
 <body>
 
-    <!-- خلفية الفيديو (تبدأ صامتة عشان ما يمنعها المتصفح) -->
-    <video id="bg-video" autoplay muted loop class="bg-video">
+    <!-- خلفية الفيديو صامتة -->
+    <video autoplay muted loop class="bg-video">
         <source src="https://cdn.discordapp.com/attachments/1527314746637029430/1549898844433686580/lst.mp4?ex=6aac5f48&is=6aab0dc8&hm=e8ff4bc65b0c5ee85a1b9bbedba4c15459900b57718de984d41eecfbe6e96861&" type="video/mp4">
     </video>
 
+    <!-- عنصر الصوت المستقل -->
+    <audio id="bg-audio" loop>
+        <source src="حط_رابط_المقطع_الصوتي_هنا_اذا_عندك_رابط_ثاني" type="audio/mp3">
+    </audio>
+
     <div class="card">
-        <!-- صورتك الشخصية -->
         <img src="https://cdn.discordapp.com/attachments/1527314746637029430/1549894413486915735/download_46.jpg?ex=6aac5b27&is=6aab09a7&hm=459b932b039851c63e7178638f71ce932a956f2e9ddbbba92231b630c46e2ef8&" alt="Avatar" class="avatar">
         
         <h1>LittleDeath</h1>
 
-        <!-- روابط السوشيال ميديا -->
         <div class="socials">
-            <a href="https://www.tiktok.com/@lvr_" target="_blank" title="تيك توك">
-                <i class="fab fa-tiktok"></i>
-            </a>
-            <a href="#" target="_blank" title="ديسكورد: .__.__.__._._">
-                <i class="fab fa-discord"></i>
-            </a>
-            <a href="https://www.snapchat.com/add/x.u2c" target="_blank" title="سناب شات">
-                <i class="fab fa-snapchat"></i>
-            </a>
+            <a href="https://www.tiktok.com/@lvr_" target="_blank" title="تيك توك"><i class="fab fa-tiktok"></i></a>
+            <a href="#" target="_blank" title="ديسكورد: .__.__.__._._"><i class="fab fa-discord"></i></a>
+            <a href="https://www.snapchat.com/add/x.u2c" target="_blank" title="سناب شات"><i class="fab fa-snapchat"></i></a>
         </div>
 
-        <!-- زر تشغيل الصوت -->
         <button class="music-toggle" onclick="toggleAudio()">
             <i class="fa-solid fa-volume-xmark" id="vol-icon"></i> <span id="vol-text">تشغيل الصوت</span>
         </button>
 
-        <!-- عداد المشاهدات -->
         <div class="views">
             <i class="fa-solid fa-eye"></i> 213
         </div>
@@ -154,16 +146,16 @@
 
     <script>
         function toggleAudio() {
-            var video = document.getElementById("bg-video");
+            var audio = document.getElementById("bg-audio");
             var icon = document.getElementById("vol-icon");
             var text = document.getElementById("vol-text");
 
-            if (video.muted) {
-                video.muted = false;
+            if (audio.paused) {
+                audio.play();
                 icon.className = "fa-solid fa-volume-high";
                 text.innerText = "إيقاف الصوت";
             } else {
-                video.muted = true;
+                audio.pause();
                 icon.className = "fa-solid fa-volume-xmark";
                 text.innerText = "تشغيل الصوت";
             }
