@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Death</title>
+    <!-- استدعاء مكتبة أيقونات FontAwesome عشان تطلع شعارات السناب والديسكورد والتيك توك وعلامة العين -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            font-family: Tahoma, sans-serif;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        /* خلفية الفيديو */
+        .bg-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(0.4);
+        }
+        .card {
+            background-color: rgba(30, 30, 30, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 35px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            width: 320px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .avatar {
+            width: 95px;
+            height: 95px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        h1 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .socials a {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            width: 20px;
+            height: 20px;
+            font-size: 16px;
+            transition: 0.2s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .socials a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+        .views {
+            font-size: 13px;
+            color: #aaa;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        .views i {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- خلفية الفيديو (تشتغل لحالها وبصامت عشان المتصفحات ماتمنعها) -->
+    <video autoplay muted loop class="bg-video">
+        <source src="https://cdn.discordapp.com/attachments/1527314746637029430/1549887506135130142/The_hills_have_eyes......_ART_VISUALART_TRIAL_REELS_CINEMA_CINEMATIC_CINEMATOGRAPHY_COUPLER.mp4?ex=6aac54b8&is=6aab0338&hm=6834c20788b53ce4b2508c8c08f7252c57a59c5f69cf9ec6cac637ecd0bf0d6a&" type="video/mp4">
+    </video>
+
+    <!-- الأغنية (تشتغل تلقائياً أول ما الزائر يلمس الصفحة أو يدخل الموقع) -->
+    <audio id="bg-audio" autoplay loop>
+        <source src="https://cdn.discordapp.com/attachments/1527314746637029430/1549887005385556070/9637a31847c7ea50.mp3?ex=6aac5441&is=6aab02c1&hm=e2753d76c17a0f9022fcc81abee0f45a847ec5074e6ae1ff762f1a50d75bcebe&" type="audio/mp3">
+    </audio>
+
+    <div class="card">
+        <!-- صورتك الشخصية -->
+        <img src="https://cdn.discordapp.com/attachments/1527314746637029430/1549894413486915735/download_46.jpg?ex=6aac5b27&is=6aab09a7&hm=459b932b039851c63e7178638f71ce932a956f2e9ddbbba92231b630c46e2ef8&" alt="Avatar" class="avatar">
+        
+        <h1>LittleDeath</h1>
+
+        <!-- روابط السوشيال ميديا (أيقونات) -->
+        <div class="socials">
+            <!-- سناب شات -->
+            <a href="https://www.snapchat.com/add/x.u2c" target="_blank" title="سناب شات">
+                <i class="fab fa-snapchat"></i>
+            </a>
+            <!-- ديسكورد -->
+            <a href="#" target="_blank" title="ديسكورد: .__.__.__._._">
+                <i class="fab fa-discord"></i>
+            </a>
+            <!-- تيك توك -->
+            <a href="https://www.tiktok.com/@lvr_" target="_blank" title="تيك توك">
+                <i class="fab fa-tiktok"></i>
+            </a>
+        </div>
+
+        <!-- عداد المشاهدات بأيقونة العين البيضاء -->
+        <div class="views">
+            <i class="fa-solid fa-eye"></i> 213
+        </div>
+    </div>
+
+    <script>
+        // حل مشكلة الحظر التلقائي للأغاني في بعض المتصفحات (تشتغل فور أول تفاعل بالموقع مثل كلك أو لمس)
+        document.addEventListener('click', function() {
+            var audio = document.getElementById("bg-audio");
+            if (audio.paused) {
+                audio.play();
+            }
+        }, { once: true });
+    </script>
+
+</body>
+</html>
