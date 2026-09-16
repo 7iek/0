@@ -99,14 +99,14 @@
 </head>
 <body>
 
-    <!-- خلفية الفيديو (تشتغل لحالها وبصامت عشان المتصفحات ماتمنعها) -->
+    <!-- خلفية الفيديو -->
     <video autoplay muted loop class="bg-video">
-        <source src="https://cdn.discordapp.com/attachments/1527314746637029430/1549887506135130142/The_hills_have_eyes......_ART_VISUALART_TRIAL_REELS_CINEMA_CINEMATIC_CINEMATOGRAPHY_COUPLER.mp4?ex=6aac54b8&is=6aab0338&hm=6834c20788b53ce4b2508c8c08f7252c57a59c5f69cf9ec6cac637ecd0bf0d6a&" type="video/mp4">
+        <source src="https://cdn.discordapp.com/attachments/1527314746637029430/1549898844433686580/lst.mp4?ex=6aac5f48&is=6aab0dc8&hm=e8ff4bc65b0c5ee85a1b9bbedba4c15459900b57718de984d41eecfbe6e96861&" type="video/mp4">
     </video>
 
-    <!-- الأغنية (تشتغل تلقائياً أول ما الزائر يلمس الصفحة أو يدخل الموقع) -->
+    <!-- الأغنية (إذا تبيها تشتغل بصيغة mp3 رجع رابط الأغنية حقتك هنا، حالياً حطيت رابط الفيديو مؤقتاً) -->
     <audio id="bg-audio" autoplay loop>
-        <source src="https://cdn.discordapp.com/attachments/1527314746637029430/1549887005385556070/9637a31847c7ea50.mp3?ex=6aac5441&is=6aab02c1&hm=e2753d76c17a0f9022fcc81abee0f45a847ec5074e6ae1ff762f1a50d75bcebe&" type="audio/mp3">
+        <source src="https://cdn.discordapp.com/attachments/1527314746637029430/1549898844433686580/lst.mp4?ex=6aac5f48&is=6aab0dc8&hm=e8ff4bc65b0c5ee85a1b9bbedba4c15459900b57718de984d41eecfbe6e96861&" type="mp4">
     </audio>
 
     <div class="card">
@@ -138,7 +138,7 @@
     </div>
 
     <script>
-        // حل مشكلة الحظر التلقائي للأغاني في بعض المتصفحات (تشتغل فور أول تفاعل بالموقع مثل كلك أو لمس)
+        // حل مشكلة التشغيل التلقائي للمتصفحات (تشتغل فور أول لمس أو ضغطة بالشاشة)
         document.addEventListener('click', function() {
             var audio = document.getElementById("bg-audio");
             if (audio.paused) {
